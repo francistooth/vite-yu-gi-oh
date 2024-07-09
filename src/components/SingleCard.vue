@@ -10,19 +10,20 @@ export default {
         <img class="img-fluid mb-3" :src="info.card_images[0].image_url" :alt="info.name">
         <h4> {{ info.name }} </h4>
         <div> Type: {{ info.type }} </div>
-        <div class="font-weight-bold"> Effect: {{ info.desc }} </div>
-        <div class="font-weight-bold"> Race: {{ info.archetype }} </div>
+        <p> Effect: {{ info.desc }} </p>
+        <div v-if="info.card_prices[0].ebay_price != 0.00" class="font-weight-bold"> Ebay price: &dollar;{{ info.card_prices[0].ebay_price }} </div>
+        <div v-else class="font-weight-bold"> Ebay price: no price found </div>
     </div>
 </template>
 
 <style scoped lang="scss">
 @use '../style/partials/variables' as *;
 
-// .character {
-    // img {
-    //     border-radius: 50%;
-    // }
-// }
+.character {
+    p {
+        color: limegreen;
+    }
+}
 
 h4 {
     text-transform: capitalize;
