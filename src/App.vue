@@ -1,6 +1,6 @@
 <script>
 import AppHeader from './components/AppHeader.vue'
-import CharacterList from './components/CharacterList.vue';
+import CardList from './components/CardList.vue';
 
 // axios import 
 
@@ -18,31 +18,31 @@ export default {
         }
     },  
     methods: {
-        getCharacters(){
+        getCard(){
             axios.
             get(store.apiUrl)
             .then(res => {
-                console.log(res.data.results);
-                store.characterList = res.data.results;
+                console.log(res.data.data);
+                store.cardList = res.data.data;
             }).catch(err => {
                 console.log(err);
             });
         }
     },
     created() {
-        this.getCharacters();
+        this.getCard();
     },
     components: {
         AppHeader,
-        CharacterList,
+        CardList,
     }
 }
 </script>
 
 <template>
-    <AppHeader message="Rick & Morty" />
+    <AppHeader message="Yu-gi-oh Card Finder" />
     <main>
-        <CharacterList />
+        <CardList />
     </main>
 </template>
 

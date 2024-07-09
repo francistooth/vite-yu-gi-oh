@@ -1,14 +1,14 @@
 <script>
-import SingleCharacter from './SingleCharacter.vue';
+import SingleCard from './SingleCard.vue';
 
 // store import
 
 import { store } from '../store';
 
 export default {
-    name: 'CharacterList',
+    name: 'CardList',
     components: {
-        SingleCharacter,
+        SingleCard,
     }, 
     data() {
         return {
@@ -21,8 +21,8 @@ export default {
 <template>
     <section class="container">
         <div class="row">
-            <div v-for="character in store.characterList" :key="character.id" class="col-6 col-md-4 col-lg-3 mb-5">
-                <SingleCharacter :info="character"/>
+            <div v-for="card in store.cardList" :key="card.id" class="col-6 col-md-4 col-lg-3 mb-5">
+                <SingleCard :info="card"/>
             </div>
         </div>
     </section>
