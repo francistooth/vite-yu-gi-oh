@@ -1,5 +1,6 @@
 <script>
-import AppHeader from './components/AppHeader.vue'
+import AppHeader from './components/AppHeader.vue';
+import SelectRace from './components/SelectRace.vue';
 import CardList from './components/CardList.vue';
 
 // axios import 
@@ -19,8 +20,14 @@ export default {
     },  
     methods: {
         getCard(){
+            let endPoint = store.apiUrl;
+
+            if (store.search != "") {
+                endPoint += `&archetype=${store.search}`;
+            }
+
             axios.
-            get(store.apiUrl)
+            get(endPoint)
             .then(res => {
                 console.log(res.data.data);
                 store.cardList = res.data.data;
@@ -34,6 +41,7 @@ export default {
     },
     components: {
         AppHeader,
+        SelectRace,
         CardList,
     }
 }
@@ -42,6 +50,7 @@ export default {
 <template>
     <AppHeader message="Yu-gi-oh Card Finder" />
     <main>
+        <SelectRace @search="getCard()" />
         <CardList />
     </main>
 </template>

@@ -29,5 +29,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
+div.col-6 {
+    width: 20%;
+}
 </style>
