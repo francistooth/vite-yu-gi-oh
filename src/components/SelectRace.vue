@@ -34,16 +34,10 @@ export default {
     <div class="container mb-3">
         <label class="labels" for="raceSelect"> Filter by race:  </label>
         <select v-model="store.search" @change="$emit('search')">
+            <option value=""></option>
             <option v-for="arch in store.archList" :value="arch.archetype_name">
                 {{ arch.archetype_name }}
             </option>
-            <!-- <option value=""></option>
-            <option value="Alien"> Alien </option>
-            <option value="Infernoble Arms"> Infernoble Arms</option>
-            <option value="Noble Knight"> Noble Knight </option>
-            <option value="Ally of Justice"> Ally of Justice </option>
-            <option value="Melodious"> Melodious </option>
-            <option value="Gagaga"> Gagaga </option> -->
         </select>
     </div>
 </template>
